@@ -1,4 +1,4 @@
-+++
+---
 title:
 
 location:
@@ -12,4 +12,4 @@ photos:
 videos:
 
 draft: true
-+++
+---
