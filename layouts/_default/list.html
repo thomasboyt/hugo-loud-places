@@ -1,20 +1,24 @@
 {{define "main"}}
 
   <div class="content">
-    <h2>{{.Title}}</h2>
+    <h1>{{.Title}}</h1>
 
-    {{ range first 100000 .Pages }}
-        <p>
-        <aside>{{ .Date.Format "January 2, 2006"}}
-            {{ if .Params.tags }}
-            /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
-                </em>
-
-            {{ end }}
-        </aside>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </p>
-    {{ end }}
+    <ul class="post-list">
+        {{ range first 100000 .Pages }}
+            <li>
+                <div class="post-list-title">
+                    {{if .Content }}
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{else}}
+                        <span>{{.Title}}</span>
+                    {{end}}
+                </div>
+                <aside class="post-list-date">
+                    {{ .Date.Format "January 2, 2006"}}
+                </aside>
+            </li>
+        {{ end }}
+        </ul>
   </div>
 
 {{end}}

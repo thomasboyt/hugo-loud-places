@@ -183,48 +183,28 @@ img {
 }
 
 
-
-
 a {
-	text-decoration: none;
 	color: inherit;
-	-moz-transition-property: background;
-	-webkit-transition-property: background;
-	transition-property: background;
-	-moz-transition-duration: 0.2s;
-	-webkit-transition-duration: 0.2s;
-	transition-duration: 0.2s;
 }
 
+header a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.content a {
+	text-decoration: none;
+	border-bottom: 1px solid;
+	color: inherit;
+}
 
 div.nav a:active div {
 	background: #cacaca;
 }
 
-a:active {
+a:active, a:hover {
+	border-bottom: none;
 	color: #777;
-}
-
-a:hover {
-	background: #fbf3f3;
-	-moz-transition-property: background;
-	-webkit-transition-property: background;
-	transition-property: background;
-	-moz-transition-duration: 0.2s;
-	-webkit-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	border-radius: 10px;
-}
-
-
-a:after {
-    position: relative;
-    content: "\FEFF°";
-    margin-left: 0.10em;
-    font-size: 80%;
-    top: -0.30em;
-    left: -0.1em;
-    color: #d21c1c;
 }
 
 
@@ -378,5 +358,14 @@ body.show-modal {
 }
 
 .media-section {
+	margin-bottom: 1em;
+}
+
+ul.post-list {
+	list-style: none;
+	padding-left: 0;
+}
+
+ul.post-list li {
 	margin-bottom: 1em;
 }

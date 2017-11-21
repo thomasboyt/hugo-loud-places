@@ -19,18 +19,11 @@
 			</aside>
 		</h1>
 
-		{{ .Content }}
+		<div class="post">
+			{{ .Content }}
+		</div>
 
 		{{partial "media.html" .Params}}
 	</div>
-
-
-	<footer>
-		<p>
-		{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}
-		{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
-		</p>
-	</footer>
-
 
 {{end}}
