@@ -1,0 +1,1 @@
+{{ (getJSON "https://publish.twitter.com/oembed?" (querify "url" .)).html | safeHTML }}
