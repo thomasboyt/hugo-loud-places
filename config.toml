@@ -3,4 +3,4 @@ languageCode = "en-us"
 title = "Loud Places"
 
 [params]
-  navigation = ["wrestling"]
+  navigation = ["shows", "wrestling"]
