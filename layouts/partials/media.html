@@ -1,0 +1,25 @@
+{{if .photos}}
+  <div class="media-section">
+    <h2>Photos</h2>
+
+    <div class="flexbin">
+      {{range .photos}}
+        <a href="/images/{{.path}}">
+          <img src="/images/{{.path}}">
+        </a>
+      {{end}}
+    </div>
+  </div>
+{{end}}
+
+{{if .videos}}
+  <div class="media-section">
+    <h2>Videos</h2>
+
+    {{range .videos}}
+      <div class="video-embed">
+        <iframe src="https://drive.google.com/file/d/{{.}}/preview" width="2" height="2"></iframe>
+      </div>
+    {{end}}
+  </div>
+{{end}}

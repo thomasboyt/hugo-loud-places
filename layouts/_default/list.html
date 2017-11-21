@@ -1,0 +1,20 @@
+{{define "main"}}
+
+  <div class="content">
+    <h2>{{.Title}}</h2>
+
+    {{ range first 100000 .Pages }}
+        <p>
+        <aside>{{ .Date.Format "January 2, 2006"}}
+            {{ if .Params.tags }}
+            /// <em>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{$e}}/">{{ $e }}</a>{{ end }}
+                </em>
+
+            {{ end }}
+        </aside>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </p>
+    {{ end }}
+  </div>
+
+{{end}}

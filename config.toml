@@ -1,0 +1,6 @@
+baseURL = "http://loudplaces.disco.zone/"
+languageCode = "en-us"
+title = "Loud Places"
+
+[params]
+  navigation = ["wrestling"]
