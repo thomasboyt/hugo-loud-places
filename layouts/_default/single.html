@@ -10,6 +10,10 @@
 				{{ .Date.Format "January 2, 2006"}}
 				·
 				{{ .Params.location }}
+				{{if .Params.cagematch}}
+					·
+					<a href="{{.Params.cagematch}}">Card</a>
+				{{end}}
 				{{if .Params.tags}}
 					·
 				{{end}}
