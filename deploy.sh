@@ -1,0 +1,1 @@
+hugo && rsync -avz --delete public/ thomas@disco.zone:~/shows
