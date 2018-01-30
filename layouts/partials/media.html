@@ -1,22 +1,36 @@
-{{if .photos}}
+{{if .Params.photos }}
   <div class="media-section">
     <h2>Photos</h2>
 
     <div class="flexbin">
-      {{range .photos}}
-        <a href="/images/{{.path}}">
-          <img src="/images/{{.path}}">
-        </a>
+      {{range .Params.photos}}
+        {{if .src}}
+          {{/* resources */}}
+          {{$image := $.Page.Resources.GetMatch .src}}
+          {{if $image}}
+            {{$scaled := $image.Fit "1000x1000"}}
+            <a href="{{$scaled.RelPermalink}}">
+              <img src="{{$scaled.RelPermalink}}">
+            </a>
+          {{else}}
+            {{print "Missing image " .src}}
+          {{end}}
+        {{else}}
+          {{/* TODO: remove these legacy /static/images/* photos */}}
+          <a href="/images/{{.path}}">
+            <img src="/images/{{.path}}">
+          </a>
+        {{end}}
       {{end}}
     </div>
   </div>
 {{end}}
 
-{{if .videos}}
+{{if .Params.videos}}
   <div class="media-section">
     <h2>Videos</h2>
 
-    {{range .videos}}
+    {{range .Params.videos}}
       <div class="video-embed">
         <iframe src="https://drive.google.com/file/d/{{.}}/preview" width="2" height="2"></iframe>
       </div>
@@ -25,7 +39,7 @@
 {{end}}
 
 {{/*
-{{if .tweets}}
+{{if .Params.tweets}}
   <div class="media-section">
     <h2>Tweets</h2>
 
