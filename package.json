@@ -4,12 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "img-optimize": "node ./img-optimize/index.js"
-  },
   "dependencies": {
-    "globby": "^7.1.1",
-    "mkdirp": "^0.5.1",
+    "prompt-confirm": "^1.2.0",
     "sharp": "^0.18.4"
   },
   "devDependencies": {

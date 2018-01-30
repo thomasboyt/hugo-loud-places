@@ -1,0 +1,42 @@
+#! /usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
+const Confirm = require('prompt-confirm');
+
+const maxWidth = 2000;
+const maxHeight = 2000;
+
+const exts = ['.jpg', '.jpeg'];
+
+async function main() {
+  const allFiles = process.argv.slice(2);
+
+  const files = allFiles.filter((file) => {
+    return exts.indexOf(path.extname(file)) !== -1;
+  });
+
+  console.log(files.join('\n'));
+  const prompt = new Confirm('Resize these files?');
+  const shouldResize = await prompt.run();
+
+  if (!shouldResize) {
+    return;
+  }
+
+  const promises = files.map(async (imagePath) => {
+    // see https://github.com/lovell/sharp/issues/28
+    const buffer = await sharp(imagePath)
+      .rotate()
+      .resize(maxWidth, maxHeight)
+      .max()
+      .toBuffer();
+
+    fs.writeFileSync(imagePath, buffer);
+  });
+
+  await Promise.all(promises);
+}
+
+main();

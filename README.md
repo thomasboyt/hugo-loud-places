@@ -6,11 +6,11 @@ I ported this whole thing to Hugo, since it seemed simpler than my home-grown so
 
 Based on the [onetwothree](https://github.com/schollz/onetwothree) theme.
 
-Images are optimized using an included script. Place images in `/src-images`, then run:
+Images are optimized using an included Node script:
 
 ```
 yarn install
-npm run img-optimize
+./resize content/path/to/post/*
 ```
 
 ### Checklist
